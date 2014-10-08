@@ -6,7 +6,7 @@ html, body {
 }
 
 
-.container div div {
+.container div {
 	background-color: rgb(255, 115, 184);
     height: 200px;
     width: 200px;
