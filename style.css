@@ -32,15 +32,10 @@ div.container {
 }
 
 
-#c1 {
-    background-image: url(images/Great_Horned_Owl_Graphic.gif);
-    background-repeat: no-repeat;
-    background-size: 40%;
-    background-position: center;
-}
 
-#c2 {
-    background-image: url(images/LaChouetteOwl.png);
+#c3 {
+    background-image: url(images/owlLineClear.png);
     background-repeat: no-repeat;
+    background-size: 60%;
     background-position: center;
 }
