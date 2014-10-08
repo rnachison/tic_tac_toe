@@ -6,7 +6,7 @@ html, body {
 }
 
 
-.container div {
+.container div div {
 	background-color: rgb(255, 115, 184);
     height: 200px;
     width: 200px;
@@ -24,7 +24,7 @@ div.container {
     clear: both;
 }
 
-#c0 {
+/*#c0 {
     background-image: url(images/BatClear.png);
     background-repeat: no-repeat;
     background-size: 175%;
@@ -34,6 +34,21 @@ div.container {
 
 
 #c3 {
+    background-image: url(images/owlLineClear.png);
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: center;
+}*/
+
+/*.bat div {
+    background-image: url(images/BatClear.png);
+    background-repeat: no-repeat;
+    background-size: 175%;
+    background-position: 30% 10%;
+
+}*/
+
+.owl {
     background-image: url(images/owlLineClear.png);
     background-repeat: no-repeat;
     background-size: 60%;
