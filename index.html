@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="witchTic">
 	<head>
 		<link rel="stylesheet" type="text/css" href="style.css">
     	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
 		<script src="main.js"></script>
+		<title>WITCHES' TIC TAC TOE</title>
 	</head>
-	<body ng-app="witchTic">
-		<h1></h1>
+	<body>
+		<h1>Cat's Game</h1>
+		<h2>Please call your familiar. Owls choose players that take initiative; bats choose players who wait and survey.</h2>
 		<div ng-controller="Controlled" class="container">
-			<div class="c0" ng-class="owlLaunch" ng-click="launchFamiliar()"><p></p></div>
-			<div id="c1"><p></p></div>
-			<div id="c2"><p></p></div>
+			{{testString}}
 
-			<div id="c3" class="clear"><p></p></div>
-			<div id="c4"><p></p></div>
-			<div id="c5"><p></p></div>
 
-			<div id="c6" class="clear"><p></p></div>
-			<div id="c7"><p></p></div>
-			<div id="c8"><p></p></div>
-			</div>
+			<div class="gridBox">
+
+                <div ng-repeat="currentCell in theCells">
+                    <div class="allCells"></div>
+                </div>
+
+
+            </div>
+
+		</div>
 	</body>
 </html>

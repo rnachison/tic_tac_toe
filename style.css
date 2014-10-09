@@ -5,8 +5,29 @@ html, body {
 
 }
 
+h1 {
+    text-align: center;
+    color: rgb(255, 13, 134);
+    font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+    font-size: 70px;
+}
 
-.container div {
+h2 {
+    text-align: center;
+    color: rgb(255, 13, 134);
+    font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+    font-size: 30px;
+}
+
+
+.gridBox {
+    height: 650px;
+    width: 650px;
+    margin: 15px auto;
+}
+
+
+.allCells {
 	background-color: rgb(255, 115, 184);
     height: 200px;
     width: 200px;
@@ -16,13 +37,7 @@ html, body {
     border-radius: 25px;
 }
 
-div.container {
-    margin: 0% 20%;
-}
 
-.clear {
-    clear: both;
-}
 
 /*#c0 {
     background-image: url(images/BatClear.png);
@@ -40,17 +55,17 @@ div.container {
     background-position: center;
 }*/
 
-/*.bat div {
+/*.bat {
     background-image: url(images/BatClear.png);
     background-repeat: no-repeat;
     background-size: 175%;
     background-position: 30% 10%;
 
-}*/
+}
 
 .owl {
     background-image: url(images/owlLineClear.png);
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: center;
-}
+}*/
