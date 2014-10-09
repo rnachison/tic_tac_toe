@@ -6,16 +6,34 @@ witchTic.controller('Controlled', function ($scope) {
     $scope.testString = "All connected, boo!" ;
 
     $scope.theCells = [
-    {status: "A"}, 
-    {status: "B"}, 
-    {status: "C"}, 
-    {status: "D"}, 
-    {status: "E"}, 
-    {status: "F"}, 
-    {status: "G"}, 
-    {status: "H"}, 
-    {status: "I"}
+    {status: "X"}, 
+    {status: "X"}, 
+    {status: "X"}, 
+    {status: "X"}, 
+    {status: "X"}, 
+    {status: "X"}, 
+    {status: "X"}, 
+    {status: "X"}, 
+    {status: "X"}
     ]  ;
+
+    $scope.counter = 0 ;
+
+    $scope.testJS = function () {
+        console.log('JS function working okay') ;
+    } ;
+
+    $scope.launchFamiliar = function (thisCell) {
+        $scope.counter = $scope.counter + 1 ;
+        console.log(thisCell + " was chosen.") ;
+        if (($scope.counter % 2) == 1) {
+            thisCell.status = "O" ;
+        } else {
+            thisCell.status = "B" ;
+        }
+        console.log("Cell is now " + thisCell.status) ;
+
+    } ;
 
 	// $scope.launchFamiliar = function () {
  //        if ((count % 2) === 1) {

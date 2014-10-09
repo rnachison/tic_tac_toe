@@ -16,9 +16,9 @@
 			<div class="gridBox">
 
                 <div ng-repeat="currentCell in theCells">
-                    <div class="allCells"></div>
+                    <div class="allCells" ng-click="launchFamiliar(currentCell)" ng-class="{owl: currentCell.status=='O', bat: currentCell.status=='B'}"></div>
                 </div>
-
+                <button ng-click="testJS()">TEST</button>
 
             </div>
 

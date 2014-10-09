@@ -31,7 +31,7 @@ h2 {
 	background-color: rgb(255, 115, 184);
     height: 200px;
     width: 200px;
-    border: 3px dotted rgb(232, 93, 231);
+    border: 3px dotted rgb(255, 13, 134);
     display: inline-block;
     float: left;
     border-radius: 25px;
@@ -55,7 +55,7 @@ h2 {
     background-position: center;
 }*/
 
-/*.bat {
+.bat {
     background-image: url(images/BatClear.png);
     background-repeat: no-repeat;
     background-size: 175%;
@@ -68,4 +68,4 @@ h2 {
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: center;
-}*/
+}
