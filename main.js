@@ -6,15 +6,15 @@ witchTic.controller('Controlled', function ($scope) {
     $scope.testString = "All connected, boo!" ;
 
     $scope.theCells = [
-    {status: "X"}, 
-    {status: "X"}, 
-    {status: "X"}, 
-    {status: "X"}, 
-    {status: "X"}, 
-    {status: "X"}, 
-    {status: "X"}, 
-    {status: "X"}, 
-    {status: "X"}
+    {status: "X", magic: 4}, 
+    {status: "X", magic: 9}, 
+    {status: "X", magic: 2}, 
+    {status: "X", magic: 3}, 
+    {status: "X", magic: 5}, 
+    {status: "X", magic: 7}, 
+    {status: "X", magic: 8}, 
+    {status: "X", magic: 1}, 
+    {status: "X", magic: 6}
     ]  ;
 
     $scope.counter = 0 ;

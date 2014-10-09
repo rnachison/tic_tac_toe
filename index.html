@@ -15,9 +15,13 @@
 
 			<div class="gridBox">
 
+<!--             Stamps out all nine cells, and changes background picture based on click # -->
+
                 <div ng-repeat="currentCell in theCells">
                     <div class="allCells" ng-click="launchFamiliar(currentCell)" ng-class="{owl: currentCell.status=='O', bat: currentCell.status=='B'}"></div>
                 </div>
+
+
                 <button ng-click="testJS()">TEST</button>
 
             </div>
