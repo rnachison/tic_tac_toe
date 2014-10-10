@@ -45,6 +45,8 @@ witchTic.controller('Controlled', function ($scope) {
         $scope.aTie = false;
     } ;
 
+    // Switch cell status to alternate between owl and bat
+
     $scope.launchFamiliar = function (thisCell) {
         $scope.counter = $scope.counter + 1 ;
         console.log(thisCell + " was chosen.") ;

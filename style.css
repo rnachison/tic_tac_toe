@@ -69,6 +69,7 @@ h3 {
     background-repeat: no-repeat;
     background-size: 78%;
     background-position: center;
+    pointer-events: none;
 
 }
 
@@ -77,6 +78,7 @@ h3 {
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: center;
+    pointer-events: none;
 }
 
 /*End markers*/
