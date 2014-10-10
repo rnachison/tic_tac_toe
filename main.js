@@ -25,7 +25,9 @@ witchTic.controller('Controlled', function ($scope) {
 
 
     $scope.reset = function () {
-         $scope.theCells = [
+
+// Reset cell statuses to clear markers
+        $scope.theCells = [
         {status: "X", num: 0}, 
         {status: "X", num: 1}, 
         {status: "X", num: 2}, 
@@ -37,12 +39,21 @@ witchTic.controller('Controlled', function ($scope) {
         {status: "X", num: 8}
         ]  ;
 
+// Reset owl and bat arrays
+
         $scope.owlCells = [];
         $scope.batCells = [];
+
+// reset ng-show so no winner is displayed
 
         $scope.owlWon = false;
         $scope.batWon = false;
         $scope.aTie = false;
+
+
+// Reset click counter
+
+        $scope.counter = 0;
     } ;
 
     // Switch cell status to alternate between owl and bat
