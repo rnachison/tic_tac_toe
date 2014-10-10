@@ -10,7 +10,7 @@
 		<h1>Cat's Game</h1>
 		<h2>Please call your familiar. Owls choose players that take initiative; bats choose players who wait and survey.</h2>
 		<div ng-controller="Controlled" class="container">
-			{{testString}}
+
 
 
 			<div class="gridBox">
@@ -18,12 +18,14 @@
 <!--             Stamps out all nine cells, and changes background picture based on click # -->
 
                 <div ng-repeat="currentCell in theCells">
-                    <div class="allCells" ng-click="launchFamiliar(currentCell)" ng-class="{owl: currentCell.status=='O', bat: currentCell.status=='B'}"></div>
+                    <div class="allCells" ng-click="launchFamiliar(currentCell)" ng-class="{owl: currentCell.status=='O', bat: currentCell.status=='B'}"></div> 
+
+
                 </div>
 
 
                 <button ng-click="testJS()">TEST</button>
-
+                {{testString}}
             </div>
 
 		</div>

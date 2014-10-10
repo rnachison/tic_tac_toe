@@ -4,29 +4,37 @@ html, body {
     background-color: rgb(255, 109, 255);
     background-image: url(images/flowerpentclear.png);
     background-repeat: no-repeat;
-    background-size: 40%;
+    background-size: 500px;
     background-position: bottom left;
 
 }
 
+@font-face {
+    font-family: tallys;
+    src: url(images/Tallys_15.otf); 
+}
+
+
 h1 {
     text-align: center;
     color: rgb(255, 13, 134);
-    font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
-    font-size: 70px;
+/*    font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;*/
+    font-family: tallys;
+    font-size: 80px;
 }
 
 h2 {
     text-align: center;
     color: rgb(255, 13, 134);
-    font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+    font-family: tallys;
+/*    font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;*/
     font-size: 30px;
 }
 
 
 .gridBox {
-    height: 490px;
-    width: 490px;
+    height: 550px;
+    width: 550px;
     margin: 15px auto;
 }
 
@@ -34,8 +42,8 @@ h2 {
 
 .allCells {
 	background-color: rgb(255, 115, 184);
-    height: 150px;
-    width: 150px;
+    height: 175px;
+    width: 175px;
     border: 3px dotted rgb(255, 13, 134);
     display: inline-block;
     float: left;

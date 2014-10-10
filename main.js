@@ -1,23 +1,28 @@
 // console.log("pastelgoth")
 var witchTic = angular.module("witchTic", []);
-var count = 0;
 witchTic.controller('Controlled', function ($scope) {
 
     $scope.testString = "All connected, boo!" ;
 
     $scope.theCells = [
-    {status: "X", magic: 4}, 
-    {status: "X", magic: 9}, 
-    {status: "X", magic: 2}, 
-    {status: "X", magic: 3}, 
-    {status: "X", magic: 5}, 
-    {status: "X", magic: 7}, 
-    {status: "X", magic: 8}, 
-    {status: "X", magic: 1}, 
-    {status: "X", magic: 6}
+    {status: "X", num: 0}, 
+    {status: "X", num: 1}, 
+    {status: "X", num: 2}, 
+    {status: "X", num: 3}, 
+    {status: "X", num: 4}, 
+    {status: "X", num: 5}, 
+    {status: "X", num: 6}, 
+    {status: "X", num: 7}, 
+    {status: "X", num: 8}
     ]  ;
 
     $scope.counter = 0 ;
+
+
+    // Create arrays to store marked cells in
+    $scope.owlCells = [];
+    $scope.batCells = [];
+
 
     $scope.testJS = function () {
         console.log('JS function working okay') ;
@@ -33,21 +38,38 @@ witchTic.controller('Controlled', function ($scope) {
         }
         console.log("Cell is now " + thisCell.status) ;
 
+// Create function to add cell values to appropriate arrays
+
+        if (thisCell.status == "O") {
+            $scope.owlCells.push(thisCell.num) ;
+            console.log($scope.owlCells) ;
+        } else {
+            $scope.batCells.push(thisCell.num)
+            console.log($scope.batCells) ;
+        };
+
+
+// Define winner by checking for winning num combinations in arrays
+
+        if ((($scope.owlCells.indexOf(0) > -1) && ($scope.owlCells.indexOf(1) > -1) && ($scope.owlCells.indexOf(2) > -1)) || (($scope.owlCells.indexOf(3) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(5) > -1)) || (($scope.owlCells.indexOf(6) > -1) && ($scope.owlCells.indexOf(7) > -1) && ($scope.owlCells.indexOf(8) > -1)) || (($scope.owlCells.indexOf(0) > -1) && ($scope.owlCells.indexOf(3) > -1) && ($scope.owlCells.indexOf(6) > -1)) || (($scope.owlCells.indexOf(1) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(7) > -1)) || (($scope.owlCells.indexOf(2) > -1) && ($scope.owlCells.indexOf(5) > -1) && ($scope.owlCells.indexOf(8) > -1)) || (($scope.owlCells.indexOf(0) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(8) > -1)) || (($scope.owlCells.indexOf(2) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(6) > -1)))
+            console.log("a winner") ;
+        else if ((($scope.batCells.indexOf(0) > -1) && ($scope.batCells.indexOf(1) > -1) && ($scope.batCells.indexOf(2) > -1)) || (($scope.batCells.indexOf(3) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(5) > -1)) || (($scope.batCells.indexOf(6) > -1) && ($scope.batCells.indexOf(7) > -1) && ($scope.batCells.indexOf(8) > -1)) || (($scope.batCells.indexOf(0) > -1) && ($scope.batCells.indexOf(3) > -1) && ($scope.batCells.indexOf(6) > -1)) || (($scope.batCells.indexOf(1) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(7) > -1)) || (($scope.batCells.indexOf(2) > -1) && ($scope.batCells.indexOf(5) > -1) && ($scope.batCells.indexOf(8) > -1)) || (($scope.batCells.indexOf(0) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(8) > -1)) || (($scope.batCells.indexOf(2) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(6) > -1))) {
+            console.log("bat won") ;
+        } else if ($scope.owlCells.length == 5) {
+            console.log("a tie")
+        } else {
+            console.log("not yet")
+
+        };
+
+
     } ;
 
-	// $scope.launchFamiliar = function () {
- //        if ((count % 2) === 1) {
- //            $scope.owlLaunch = true;
- //        } else {
- //            $scope.batLaunch = true;
- //        };
- //    };
- //    $scope.launchTic = function () {
- //        if ((count % 2) === 1) {
- //            $scope.isowl = true;
- //        } else {
- //            $scope.isbat = true;
- //        };
- //    };
+
+
 });
+
+
+
+
 
