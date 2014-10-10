@@ -12,6 +12,11 @@
 		<div ng-controller="Controlled" class="container">
 
 
+<!--                 Appears when game has ended -->
+
+                <h3 ng-show="owlWon">OWL WON</h3>
+                <h3 ng-show="batWon">BAT WON</h3>
+                <h3 ng-show="aTie">IT'S A TIE</h3>
 
 			<div class="gridBox">
 
@@ -19,15 +24,14 @@
 
                 <div ng-repeat="currentCell in theCells">
                     <div class="allCells" ng-click="launchFamiliar(currentCell)" ng-class="{owl: currentCell.status=='O', bat: currentCell.status=='B'}"></div> 
-
-
                 </div>
 
 
-                <button ng-click="testJS()">TEST</button>
-                {{testString}}
-            </div>
 
+
+<!--                 {{testString}} -->
+            </div>
+                <button ng-click="reset()" align="center">RESET</button>
 		</div>
 	</body>
 </html>

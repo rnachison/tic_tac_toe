@@ -24,8 +24,25 @@ witchTic.controller('Controlled', function ($scope) {
     $scope.batCells = [];
 
 
-    $scope.testJS = function () {
-        console.log('JS function working okay') ;
+    $scope.reset = function () {
+         $scope.theCells = [
+        {status: "X", num: 0}, 
+        {status: "X", num: 1}, 
+        {status: "X", num: 2}, 
+        {status: "X", num: 3}, 
+        {status: "X", num: 4}, 
+        {status: "X", num: 5}, 
+        {status: "X", num: 6}, 
+        {status: "X", num: 7}, 
+        {status: "X", num: 8}
+        ]  ;
+
+        $scope.owlCells = [];
+        $scope.batCells = [];
+
+        $scope.owlWon = false;
+        $scope.batWon = false;
+        $scope.aTie = false;
     } ;
 
     $scope.launchFamiliar = function (thisCell) {
@@ -51,14 +68,14 @@ witchTic.controller('Controlled', function ($scope) {
 
 // Define winner by checking for winning num combinations in arrays
 
-        if ((($scope.owlCells.indexOf(0) > -1) && ($scope.owlCells.indexOf(1) > -1) && ($scope.owlCells.indexOf(2) > -1)) || (($scope.owlCells.indexOf(3) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(5) > -1)) || (($scope.owlCells.indexOf(6) > -1) && ($scope.owlCells.indexOf(7) > -1) && ($scope.owlCells.indexOf(8) > -1)) || (($scope.owlCells.indexOf(0) > -1) && ($scope.owlCells.indexOf(3) > -1) && ($scope.owlCells.indexOf(6) > -1)) || (($scope.owlCells.indexOf(1) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(7) > -1)) || (($scope.owlCells.indexOf(2) > -1) && ($scope.owlCells.indexOf(5) > -1) && ($scope.owlCells.indexOf(8) > -1)) || (($scope.owlCells.indexOf(0) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(8) > -1)) || (($scope.owlCells.indexOf(2) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(6) > -1)))
-            console.log("a winner") ;
-        else if ((($scope.batCells.indexOf(0) > -1) && ($scope.batCells.indexOf(1) > -1) && ($scope.batCells.indexOf(2) > -1)) || (($scope.batCells.indexOf(3) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(5) > -1)) || (($scope.batCells.indexOf(6) > -1) && ($scope.batCells.indexOf(7) > -1) && ($scope.batCells.indexOf(8) > -1)) || (($scope.batCells.indexOf(0) > -1) && ($scope.batCells.indexOf(3) > -1) && ($scope.batCells.indexOf(6) > -1)) || (($scope.batCells.indexOf(1) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(7) > -1)) || (($scope.batCells.indexOf(2) > -1) && ($scope.batCells.indexOf(5) > -1) && ($scope.batCells.indexOf(8) > -1)) || (($scope.batCells.indexOf(0) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(8) > -1)) || (($scope.batCells.indexOf(2) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(6) > -1))) {
-            console.log("bat won") ;
+        if ((($scope.owlCells.indexOf(0) > -1) && ($scope.owlCells.indexOf(1) > -1) && ($scope.owlCells.indexOf(2) > -1)) || (($scope.owlCells.indexOf(3) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(5) > -1)) || (($scope.owlCells.indexOf(6) > -1) && ($scope.owlCells.indexOf(7) > -1) && ($scope.owlCells.indexOf(8) > -1)) || (($scope.owlCells.indexOf(0) > -1) && ($scope.owlCells.indexOf(3) > -1) && ($scope.owlCells.indexOf(6) > -1)) || (($scope.owlCells.indexOf(1) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(7) > -1)) || (($scope.owlCells.indexOf(2) > -1) && ($scope.owlCells.indexOf(5) > -1) && ($scope.owlCells.indexOf(8) > -1)) || (($scope.owlCells.indexOf(0) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(8) > -1)) || (($scope.owlCells.indexOf(2) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(6) > -1))) {
+            $scope.owlWon = true;
+        } else if ((($scope.batCells.indexOf(0) > -1) && ($scope.batCells.indexOf(1) > -1) && ($scope.batCells.indexOf(2) > -1)) || (($scope.batCells.indexOf(3) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(5) > -1)) || (($scope.batCells.indexOf(6) > -1) && ($scope.batCells.indexOf(7) > -1) && ($scope.batCells.indexOf(8) > -1)) || (($scope.batCells.indexOf(0) > -1) && ($scope.batCells.indexOf(3) > -1) && ($scope.batCells.indexOf(6) > -1)) || (($scope.batCells.indexOf(1) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(7) > -1)) || (($scope.batCells.indexOf(2) > -1) && ($scope.batCells.indexOf(5) > -1) && ($scope.batCells.indexOf(8) > -1)) || (($scope.batCells.indexOf(0) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(8) > -1)) || (($scope.batCells.indexOf(2) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(6) > -1))) {
+            $scope.batWon = true ;
         } else if ($scope.owlCells.length == 5) {
-            console.log("a tie")
+            $scope.aTie = true ;
         } else {
-            console.log("not yet")
+            console.log("not yet");
 
         };
 
