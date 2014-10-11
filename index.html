@@ -4,7 +4,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link href='http://fonts.googleapis.com/css?family=IM+Fell+DW+Pica+SC' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Creepster' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Nosifer' rel='stylesheet' type='text/css'>
     	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
 		<script src="main.js"></script>
 		<title>WITCHES' TIC TAC TOE</title>
@@ -29,7 +29,7 @@
 <!--             Stamps out all nine cells, and changes background picture based on click # -->
 
                 <div ng-repeat="currentCell in theCells">
-                    <div class="allCells" ng-click="launchFamiliar(currentCell)" ng-class="{owl: currentCell.status=='O', bat: currentCell.status=='B'}"></div> 
+                    <div class="allCells" ng-click="launchFamiliar(currentCell)" ng-class="{owl: currentCell.status=='O', bat: currentCell.status=='B', end: endGame}"></div> 
                 </div>
 
 

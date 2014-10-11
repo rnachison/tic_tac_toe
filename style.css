@@ -2,10 +2,10 @@
 html, body {
     background-size: 100%;
     background-color: rgb(255, 109, 255);
-    background-image: url(images/pentwithflowersClear.png);
+    background-image: url(images/PentagramofFlowers.png);
     background-repeat: no-repeat;
     background-size: 500px;
-    background-position: bottom left;
+    background-position: bottom 10px left 10px;
 
 }
 
@@ -27,8 +27,8 @@ p {
 h3 {
     text-align: center;
     color: rgb(255, 13, 134);
-    font-family: 'Creepster', cursive;
-    font-size: 70px;
+    font-family: 'Nosifer', cursive;
+    font-size: 50px;
 }
 
 
@@ -75,6 +75,13 @@ h3 {
 }
 
 /*End markers*/
+
+/*Makes cells unclickable once game has ended*/
+
+.end {
+    pointer-events: none;
+}
+
 
 button {
     display: block;
