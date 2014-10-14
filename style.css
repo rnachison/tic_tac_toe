@@ -2,39 +2,48 @@
 html, body {
     background-size: 100%;
     background-color: rgb(255, 109, 255);
-    background-image: url(images/PentagramofFlowers.png);
-    background-repeat: no-repeat;
-    background-size: 500px;
-    background-position: bottom 10px left 10px;
+    background-image: url(images/ReversedPentagramofFlowers.png), url(images/PentagramofFlowers.png);
+    background-repeat: no-repeat, no-repeat;
+    background-size: 480px, 480px;
+    background-position: bottom 10px left 10px, bottom 10px right 10px;
 
 }
 
+/*Game title*/
 
 h1 {
     text-align: center;
     color: rgb(255, 13, 134);
     font-family: 'IM Fell DW Pica SC', serif;
-    font-size: 80px;
+    font-size: 70px;
+    margin-top: 33px;
+    margin-bottom: 5px;
 }
 
-p {
+/*Instruction paragraph*/
+
+.instructions {
     text-align: center;
     color: rgb(255, 13, 134);
     font-family: 'Great Vibes', cursive;
     font-size: 30px;
+    margin-top: 5px;
 }
+
+/*Win & Tie messages*/
 
 h3 {
     text-align: center;
     color: rgb(255, 13, 134);
     font-family: 'Nosifer', cursive;
-    font-size: 50px;
+    font-size: 40px;
+    margin: 5px auto;
 }
 
 
 .gridBox {
-    height: 550px;
-    width: 550px;
+    height: 480px;
+    width: 480px;
     margin: 15px auto;
 }
 
@@ -42,12 +51,13 @@ h3 {
 
 .allCells {
 	background-color: rgb(255, 115, 184);
-    height: 175px;
-    width: 175px;
+    height: 150px;
+    width: 150px;
     border: 3px dotted rgb(255, 13, 134);
     display: inline-block;
     float: left;
     border-radius: 25px;
+    margin: 2px;
 }
 
 .allCells:hover {
@@ -85,13 +95,36 @@ h3 {
 
 button {
     display: block;
-    font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
+    font-family: 'IM Fell DW Pica SC', serif;
     color: rgb(255, 13, 134);
-    font-size: 20px;
+    font-size: 15px;
     background-color: rgb(255, 0, 255);
     border-radius: 30px;
     border: 2px dotted rgb(255, 13, 134);
     padding: 10px;
     text-align: center;
     margin: 0px auto;
+}
+
+/*Player win counter boxes*/
+
+.playerWins div {
+    height: 45px;
+    width: 100px;
+    background-color: rgba(255, 13, 134, .5);
+    border: 3px dotted rgb(171, 9, 90);
+    border-radius: 25px;
+    display: inline-block;
+    float: right;
+    text-align: center;
+    margin: -32px 2px 2px 2px;
+    padding-top: 25px;
+    font-family: 'Great Vibes', cursive;
+    color: rgb(171, 9, 90);
+
+}
+
+.playerWins p {
+
+    margin: 3px;
 }
