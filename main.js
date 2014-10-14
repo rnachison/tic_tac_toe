@@ -16,17 +16,26 @@ witchTic.controller('Controlled', function ($scope) {
     {status: "X", num: 8}
     ]  ;
 
+// Set click counter at 0
+
     $scope.counter = 0 ;
 
+// Set total player wins at 0
 
-    // Create arrays to store marked cells in
+    $scope.owlWins = 0 ;
+    $scope.batWins = 0 ;
+
+
+// Create arrays to store marked cells in
+
     $scope.owlCells = [];
     $scope.batCells = [];
 
+// Function to reset game on button click
 
     $scope.reset = function () {
 
-// Reset cell statuses to clear markers
+    // Reset cell statuses to clear markers
         $scope.theCells = [
         {status: "X", num: 0}, 
         {status: "X", num: 1}, 
@@ -39,28 +48,27 @@ witchTic.controller('Controlled', function ($scope) {
         {status: "X", num: 8}
         ]  ;
 
-// Reset owl and bat arrays
+    // Reset owl and bat arrays
 
         $scope.owlCells = [];
         $scope.batCells = [];
 
-// reset ng-show so no winner is displayed
+    // reset ng-show so no winner is displayed
 
         $scope.owlWon = false;
         $scope.batWon = false;
         $scope.aTie = false;
 
-// Make cells clickable again
+    // Make cells clickable again
         $scope.endGame = false;
 
 
-
-// Reset click counter
+    // Reset click counter
 
         $scope.counter = 0;
     } ;
 
-    // Switch cell status to alternate between owl and bat
+// Switch cell status to alternate between owl and bat
 
     $scope.launchFamiliar = function (thisCell) {
         $scope.counter = $scope.counter + 1 ;
@@ -88,9 +96,11 @@ witchTic.controller('Controlled', function ($scope) {
         if ((($scope.owlCells.indexOf(0) > -1) && ($scope.owlCells.indexOf(1) > -1) && ($scope.owlCells.indexOf(2) > -1)) || (($scope.owlCells.indexOf(3) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(5) > -1)) || (($scope.owlCells.indexOf(6) > -1) && ($scope.owlCells.indexOf(7) > -1) && ($scope.owlCells.indexOf(8) > -1)) || (($scope.owlCells.indexOf(0) > -1) && ($scope.owlCells.indexOf(3) > -1) && ($scope.owlCells.indexOf(6) > -1)) || (($scope.owlCells.indexOf(1) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(7) > -1)) || (($scope.owlCells.indexOf(2) > -1) && ($scope.owlCells.indexOf(5) > -1) && ($scope.owlCells.indexOf(8) > -1)) || (($scope.owlCells.indexOf(0) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(8) > -1)) || (($scope.owlCells.indexOf(2) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(6) > -1))) {
             $scope.owlWon = true;
             $scope.endGame = true;
+            $scope.owlWins = $scope.owlWins + 1 ;
         } else if ((($scope.batCells.indexOf(0) > -1) && ($scope.batCells.indexOf(1) > -1) && ($scope.batCells.indexOf(2) > -1)) || (($scope.batCells.indexOf(3) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(5) > -1)) || (($scope.batCells.indexOf(6) > -1) && ($scope.batCells.indexOf(7) > -1) && ($scope.batCells.indexOf(8) > -1)) || (($scope.batCells.indexOf(0) > -1) && ($scope.batCells.indexOf(3) > -1) && ($scope.batCells.indexOf(6) > -1)) || (($scope.batCells.indexOf(1) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(7) > -1)) || (($scope.batCells.indexOf(2) > -1) && ($scope.batCells.indexOf(5) > -1) && ($scope.batCells.indexOf(8) > -1)) || (($scope.batCells.indexOf(0) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(8) > -1)) || (($scope.batCells.indexOf(2) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(6) > -1))) {
             $scope.batWon = true ;
             $scope.endGame = true;
+            $scope.batWins = $scope.batWins + 1 ;
         } else if ($scope.owlCells.length == 5) {
             $scope.aTie = true ;
         } else {
