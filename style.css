@@ -5,7 +5,7 @@ html, body {
     background-image: url(images/PentagramofFlowers.png);
     background-repeat: no-repeat;
     background-position: bottom 10% left;
-    background-size: 45%;
+    background-size: 40%;
 }
 
 .container {
@@ -44,7 +44,7 @@ h3 {
     text-align: center;
     color: rgb(255, 13, 134);
     font-family: 'Nosifer', cursive;
-    font-size: 290%;
+    font-size: 289%;
     margin: 1.5% auto 0% auto;
 }
 
@@ -59,8 +59,8 @@ h3 {
 
 .allCells {
 	background-color: rgb(255, 115, 184);
-    width: 31%;
-    padding-bottom: 31%;
+    width: 30%;
+    padding-bottom: 30%;
     border: 3px dotted rgb(171, 9, 90);
     display: inline-block;
     float: left;
@@ -69,7 +69,8 @@ h3 {
 }
 
 .allCells:hover {
-    background-color: rgba(255, 13, 134, .5)
+    background-color: rgba(255, 13, 134, .5);
+    box-shadow: 0px 8px 15px 1px #8A0748;
 }
 
 
@@ -130,11 +131,11 @@ button:hover {
     float: right;
     text-align: center;
     margin-top: -3%;
-    padding-top: 25px;
+    padding-top: 2%;
     font-family: 'Great Vibes', cursive;
     font-size: 150%;
     color: #8A0748;
-    text-shadow: 0px 5px 5px #8A0748;
+/*    text-shadow: 0px 5px 5px #8A0748;*/
     box-shadow: 0px 8px 15px 1px #8A0748;
 }
                    
@@ -143,19 +144,16 @@ button:hover {
 
 }
 
-.playerWins div:hover {
-
-}
 
 #playerOne {
     float: left;
-
 }
 
 #playerOne:hover {
     background-image: url(images/owlLineClear.png);
-    background-position: bottom -20%;
-    background-size: 130%;
+    background-repeat: no-repeat;
+    background-position: bottom 98% left 52%;
+    background-size: 151%;
     background-color: rgba(255, 13, 134, .5);
 }
 
@@ -165,7 +163,52 @@ button:hover {
 
 #playerTwo:hover {
     background-image: url(images/batVampireClear.png);
-    background-position: bottom -310% left 70%;
-    background-size: 230%;
+    background-repeat: no-repeat;
+    background-position: bottom 106% left 63%;
+    background-size: 243%;
     background-color: rgba(255, 13, 134, .5);
+}
+
+
+
+@media screen and (max-width: 689px) {
+    html, body {
+        background-position:top 1% center;
+        background-size: 38%;
+    }
+
+    .playerWins div {
+        width: 22%;
+        margin-top: -9%;
+        padding-top: 6%;
+        font-size: 96%;
+    }
+
+    h1 {
+        font-size: 242%;
+        padding-top: 37%;
+        margin-top: 2%;
+        margin-bottom: 0%;
+    }
+
+    p.instructions {
+        font-size: 113%;
+        margin: 8% auto;
+    }
+
+    h3 {
+        font-size: 139%;
+    }
+
+    .gridBox {
+        width: 88%;
+        padding: 0% 0% 79% 0%;
+        margin: 0% auto 1% auto;
+    }
+
+    .allCells {
+        width: 30%;
+        padding-bottom: 30%;
+    }
+
 }
