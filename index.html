@@ -40,12 +40,13 @@
 
 <!-- 	Gives user instructions and hides when player has won -->
 
-			<p class="instructions" ng-hide="owlWon || batWon || aTie">Please call your familiar. Owls will choose the player that takes initiative; bats will choose the player who waits to survey.</p>
+			<p class="instructions" id="pleaseCall" ng-hide="owlWon || batWon || aTie">Please call your familiar.</p>
+			<p class="instructions" ng-hide="owlWon || batWon || aTie">Owls will choose the player that takes initiative; bats will choose the player who waits to survey.</p>
 
 <!--    Appears when game has ended -->
 
-            <h3 ng-show="owlWon">OWL HAS CARRIED OUT PLAYER 1'S BIDDING</h3>
-            <h3 ng-show="batWon">BAT HAS CARRIED OUT PLAYER 2'S BIDDING</h3>
+            <h3 ng-show="owlWon">OWL WILL CARRY OUT PLAYER 1'S BIDDING</h3>
+            <h3 ng-show="batWon">BAT WILL CARRY OUT PLAYER 2'S BIDDING</h3>
             <h3 ng-show="aTie">BAT AND OWL HAVE REACHED AN IMPASSE</h3>
 
 			<div class="gridBox">
