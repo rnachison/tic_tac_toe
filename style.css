@@ -1,10 +1,10 @@
 
 html, body {
-    background-size: 100%;
+    height: 100%;
     background-color: rgb(255, 109, 255);
     background-image: url(images/ReversedPentagramofFlowers.png), url(images/PentagramofFlowers.png);
     background-repeat: no-repeat, no-repeat;
-    background-size: 450px, 450px;
+    background-size: 40%, 40%;
     background-position: bottom 20px left 45px, bottom 20px right 45px;
 
 }
@@ -42,8 +42,8 @@ h3 {
 
 
 .gridBox {
-    height: 480px;
-    width: 480px;
+    height: 35%;
+    width: 35%;
     margin: 15px auto;
 }
 
@@ -51,12 +51,12 @@ h3 {
 
 .allCells {
 	background-color: rgb(255, 115, 184);
-    height: 150px;
-    width: 150px;
+    width: 30%;
+    padding-bottom: 30%;
     border: 3px dotted rgb(171, 9, 90);
     display: inline-block;
     float: left;
-    border-radius: 25px;
+    border-radius: 20%;
     margin: 2px;
 }
 
@@ -109,8 +109,7 @@ button {
 /*Player win counter boxes*/
 
 .playerWins div {
-    height: 45px;
-    width: 100px;
+    width: 8%;
     background-color: rgba(255, 13, 134, .5);
     border: 3px dotted rgb(171, 9, 90);
     border-radius: 25px;

@@ -1,6 +1,10 @@
 // console.log("pastelgoth")
+var myHttp;
+
 var witchTic = angular.module("witchTic", []);
-witchTic.controller('Controlled', function ($scope) {
+
+witchTic.controller('Controlled', function ($scope, $http) {
+    myHttp = $http;
 
     $scope.testString = "All connected, boo!" ;
 
