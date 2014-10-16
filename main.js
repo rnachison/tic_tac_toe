@@ -1,12 +1,17 @@
 // console.log("pastelgoth")
 var myHttp;
 
-var witchTic = angular.module("witchTic", []);
+var witchTic = angular.module("witchTic", ["firebase"]);
 
-witchTic.controller('Controlled', function ($scope, $http) {
+witchTic.controller('Controlled', function ($scope, $http, $firebase) {
+
+    $scope.remoteGameContainer = 
+    $firebase(new Firebase("https://witch-game.firebaseIO.com/databaseGameContainer")) ;
+
+
     myHttp = $http;
 
-    $scope.testString = "All connected, boo!" ;
+    // $scope.testString = "All connected, boo!" ;
 
     $scope.theCells = [
     {status: "X", num: 0}, 
@@ -26,8 +31,8 @@ witchTic.controller('Controlled', function ($scope, $http) {
 
 // Set total player wins at 0
 
-    $scope.owlWins = 0 ;
-    $scope.batWins = 0 ;
+    $scope.owlVictor = 0 ;
+    $scope.batVictor = 0 ;
 
 
 // Create arrays to store marked cells in
@@ -35,12 +40,49 @@ witchTic.controller('Controlled', function ($scope, $http) {
     $scope.owlCells = [];
     $scope.batCells = [];
 
+// Establish win/tie/end variables
+
+    $scope.owlBidden = false;
+    $scope.batBidden = false;
+    $scope.impasse = false;
+    $scope.ended = false;
+
+    // $scope.reset = function () {
+    //     console.log("it's working") ;
+    // };
+
+    // $scope.launchFamiliar = function () {
+    //     console.log("this is fine") ;
+    // };
+
+
+    $scope.gameContainer = {
+    theBoard: $scope.theCells,
+    clickCounter: $scope.counter,
+    owlWins: $scope.owlVictor,
+    batWins: $scope.batVictor,
+    // owlArray: $scope.owlCells,
+    // batArray: $scope.batCells,
+    owlWon: $scope.owlBidden,
+    batWon: $scope.batBidden,
+    aTie: $scope.impasse,
+    endGame: $scope.ended,
+    // startOver: $scope.reset,
+    // callFamiliar: $scope.launchFamiliar,
+    } ;
+
+    $scope.remoteGameContainer.$bind($scope, "gameContainer") ;
+
+    $scope.$watch('gameContainer', function() {
+        console.log('gameContainer changed!') ;
+    }) ;
+
 // Function to reset game on button click
 
     $scope.reset = function () {
 
     // Reset cell statuses to clear markers
-        $scope.theCells = [
+        $scope.gameContainer.theBoard = [
         {status: "X", num: 0}, 
         {status: "X", num: 1}, 
         {status: "X", num: 2}, 
@@ -59,25 +101,27 @@ witchTic.controller('Controlled', function ($scope, $http) {
 
     // reset ng-show so no winner is displayed
 
-        $scope.owlWon = false;
-        $scope.batWon = false;
-        $scope.aTie = false;
+        $scope.gameContainer.owlWon = false;
+        $scope.gameContainer.batWon = false;
+        $scope.gameContainer.aTie = false;
 
     // Make cells clickable again
-        $scope.endGame = false;
+
+        $scope.gameContainer.endGame = false;
 
 
     // Reset click counter
 
-        $scope.counter = 0;
+        $scope.gameContainer.clickCounter = 0;
     } ;
+
 
 // Switch cell status to alternate between owl and bat
 
     $scope.launchFamiliar = function (thisCell) {
-        $scope.counter = $scope.counter + 1 ;
+        $scope.gameContainer.clickCounter = $scope.gameContainer.clickCounter + 1 ;
         console.log(thisCell + " was chosen.") ;
-        if (($scope.counter % 2) == 1) {
+        if (($scope.gameContainer.clickCounter % 2) == 1) {
             thisCell.status = "O" ;
         } else {
             thisCell.status = "B" ;
@@ -98,15 +142,15 @@ witchTic.controller('Controlled', function ($scope, $http) {
 // Define winner by checking for winning num combinations in arrays
 
         if ((($scope.owlCells.indexOf(0) > -1) && ($scope.owlCells.indexOf(1) > -1) && ($scope.owlCells.indexOf(2) > -1)) || (($scope.owlCells.indexOf(3) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(5) > -1)) || (($scope.owlCells.indexOf(6) > -1) && ($scope.owlCells.indexOf(7) > -1) && ($scope.owlCells.indexOf(8) > -1)) || (($scope.owlCells.indexOf(0) > -1) && ($scope.owlCells.indexOf(3) > -1) && ($scope.owlCells.indexOf(6) > -1)) || (($scope.owlCells.indexOf(1) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(7) > -1)) || (($scope.owlCells.indexOf(2) > -1) && ($scope.owlCells.indexOf(5) > -1) && ($scope.owlCells.indexOf(8) > -1)) || (($scope.owlCells.indexOf(0) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(8) > -1)) || (($scope.owlCells.indexOf(2) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(6) > -1))) {
-            $scope.owlWon = true;
-            $scope.endGame = true;
-            $scope.owlWins = $scope.owlWins + 1 ;
+            $scope.gameContainer.owlWon = true;
+            $scope.gameContainer.endGame = true;
+            $scope.gameContainer.owlWins = $scope.gameContainer.owlWins + 1 ;
         } else if ((($scope.batCells.indexOf(0) > -1) && ($scope.batCells.indexOf(1) > -1) && ($scope.batCells.indexOf(2) > -1)) || (($scope.batCells.indexOf(3) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(5) > -1)) || (($scope.batCells.indexOf(6) > -1) && ($scope.batCells.indexOf(7) > -1) && ($scope.batCells.indexOf(8) > -1)) || (($scope.batCells.indexOf(0) > -1) && ($scope.batCells.indexOf(3) > -1) && ($scope.batCells.indexOf(6) > -1)) || (($scope.batCells.indexOf(1) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(7) > -1)) || (($scope.batCells.indexOf(2) > -1) && ($scope.batCells.indexOf(5) > -1) && ($scope.batCells.indexOf(8) > -1)) || (($scope.batCells.indexOf(0) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(8) > -1)) || (($scope.batCells.indexOf(2) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(6) > -1))) {
-            $scope.batWon = true ;
-            $scope.endGame = true;
-            $scope.batWins = $scope.batWins + 1 ;
+            $scope.gameContainer.batWon = true ;
+            $scope.gameContainer.endGame = true;
+            $scope.gameContainer.batWins = $scope.gameContainer.batWins + 1 ;
         } else if ($scope.owlCells.length == 5) {
-            $scope.aTie = true ;
+            $scope.gameContainer.aTie = true ;
         } else {
             console.log("not yet");
 

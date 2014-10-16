@@ -107,7 +107,7 @@ button {
     font-family: 'IM Fell DW Pica SC', serif;
     color: #8A0748;
     font-size: 100%;
-    background-color: rgb(255, 0, 255);
+    background-color: #FF0D86;
     border-radius: 45%;
     border: 2px dotted rgb(171, 9, 90);
     padding: .5%;
@@ -116,7 +116,7 @@ button {
 }
 
 button:hover {
-    background-color: #FF0D86;
+    background-color: rgb(255, 0, 255);
 }
 
 
@@ -198,6 +198,7 @@ button:hover {
 
     h3 {
         font-size: 139%;
+        margin: 7% auto 8% auto;
     }
 
     .gridBox {
