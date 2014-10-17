@@ -1,17 +1,11 @@
 // console.log("pastelgoth")
-var myHttp;
-
 var witchTic = angular.module("witchTic", ["firebase"]);
-
-witchTic.controller('Controlled', function ($scope, $http, $firebase) {
+witchTic.controller('Controlled', function ($scope, $firebase) {
 
     $scope.remoteGameContainer = 
-    $firebase(new Firebase("https://witch-game.firebaseio.com/databaseGameContainer")) ;
+    $firebase(new Firebase("https://tttwitch.firebaseio.com/databaseGameContainer")) ;
 
-
-    myHttp = $http;
-
-    // $scope.testString = "All connected, boo!" ;
+    $scope.testString = "All connected, boo!" ;
 
     $scope.theCells = [
     {status: "X", num: 0}, 
@@ -37,45 +31,34 @@ witchTic.controller('Controlled', function ($scope, $http, $firebase) {
 
 // Create arrays to store marked cells in
 
-    $scope.owlCells = [];
-    $scope.batCells = [];
+    // $scope.owlCells = [];
+    // $scope.batCells = [];
 
-// Establish win/tie/end variables
+
+// Create win/tie variables
 
     $scope.owlBidden = false;
     $scope.batBidden = false;
-    $scope.impasse = false;
-    $scope.ended = false;
-
-    // $scope.reset = function () {
-    //     console.log("it's working") ;
-    // };
-
-    // $scope.launchFamiliar = function () {
-    //     console.log("this is fine") ;
-    // };
-
+    $scope.tieGame = false;
+    $scope.endOfGame = false;
 
     $scope.gameContainer = {
-    theBoard: $scope.theCells,
-    clickCounter: $scope.counter,
-    owlWins: $scope.owlVictor,
-    batWins: $scope.batVictor,
-    // owlArray: $scope.owlCells,
-    // batArray: $scope.batCells,
-    owlWon: $scope.owlBidden,
-    batWon: $scope.batBidden,
-    aTie: $scope.impasse,
-    endGame: $scope.ended,
-    // startOver: $scope.reset,
-    // callFamiliar: $scope.launchFamiliar,
+        theBoard: $scope.theCells,
+        clickCounter: $scope.counter,
+        owlWon: $scope.owlBidden,
+        batWon: $scope.batBidden,
+        aTie: $scope.tieGame,
+        owlWins: $scope.owlVictor,
+        batWins: $scope.batVictor,
+        endGame: $scope.endOfGame
     } ;
+
 
     $scope.remoteGameContainer.$bind($scope, "gameContainer") ;
 
     $scope.$watch('gameContainer', function() {
-        console.log('gameContainer changed!') ;
-    }) ;
+    console.log('gameContainer changed!') ;
+  }) ;
 
 // Function to reset game on button click
 
@@ -96,8 +79,8 @@ witchTic.controller('Controlled', function ($scope, $http, $firebase) {
 
     // Reset owl and bat arrays
 
-        $scope.owlCells = [];
-        $scope.batCells = [];
+        // $scope.owlCells = [];
+        // $scope.batCells = [];
 
     // reset ng-show so no winner is displayed
 
@@ -106,7 +89,6 @@ witchTic.controller('Controlled', function ($scope, $http, $firebase) {
         $scope.gameContainer.aTie = false;
 
     // Make cells clickable again
-
         $scope.gameContainer.endGame = false;
 
 
@@ -114,7 +96,6 @@ witchTic.controller('Controlled', function ($scope, $http, $firebase) {
 
         $scope.gameContainer.clickCounter = 0;
     } ;
-
 
 // Switch cell status to alternate between owl and bat
 
@@ -130,29 +111,30 @@ witchTic.controller('Controlled', function ($scope, $http, $firebase) {
 
 // Create function to add cell values to appropriate arrays
 
-        if (thisCell.status == "O") {
-            $scope.owlCells.push(thisCell.num) ;
-            console.log($scope.owlCells) ;
-        } else {
-            $scope.batCells.push(thisCell.num)
-            console.log($scope.batCells) ;
-        };
+        // if (thisCell.status == "O") {
+        //     $scope.owlCells.push(thisCell.num) ;
+        //     console.log($scope.owlCells) ;
+        // } else {
+        //     $scope.batCells.push(thisCell.num)
+        //     console.log($scope.batCells) ;
+        // };
 
 
 // Define winner by checking for winning num combinations in arrays
 
-        if ((($scope.owlCells.indexOf(0) > -1) && ($scope.owlCells.indexOf(1) > -1) && ($scope.owlCells.indexOf(2) > -1)) || (($scope.owlCells.indexOf(3) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(5) > -1)) || (($scope.owlCells.indexOf(6) > -1) && ($scope.owlCells.indexOf(7) > -1) && ($scope.owlCells.indexOf(8) > -1)) || (($scope.owlCells.indexOf(0) > -1) && ($scope.owlCells.indexOf(3) > -1) && ($scope.owlCells.indexOf(6) > -1)) || (($scope.owlCells.indexOf(1) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(7) > -1)) || (($scope.owlCells.indexOf(2) > -1) && ($scope.owlCells.indexOf(5) > -1) && ($scope.owlCells.indexOf(8) > -1)) || (($scope.owlCells.indexOf(0) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(8) > -1)) || (($scope.owlCells.indexOf(2) > -1) && ($scope.owlCells.indexOf(4) > -1) && ($scope.owlCells.indexOf(6) > -1))) {
+        if ((($scope.gameContainer.theBoard[0].status == "O") && ($scope.gameContainer.theBoard[1].status == "O") && ($scope.gameContainer.theBoard[2].status == "O")) || (($scope.gameContainer.theBoard[3].status == "O") && ($scope.gameContainer.theBoard[4].status == "O") && ($scope.gameContainer.theBoard[5].status == "O")) || (($scope.gameContainer.theBoard[6].status == "O") && ($scope.gameContainer.theBoard[7].status == "O") && ($scope.gameContainer.theBoard[8].status == "O")) || (($scope.gameContainer.theBoard[0].status == "O") && ($scope.gameContainer.theBoard[3].status == "O") && ($scope.gameContainer.theBoard[6].status == "O")) || (($scope.gameContainer.theBoard[1].status == "O") && ($scope.gameContainer.theBoard[4].status == "O") && ($scope.gameContainer.theBoard[7].status == "O")) || (($scope.gameContainer.theBoard[2].status == "O") && ($scope.gameContainer.theBoard[5].status == "O") && ($scope.gameContainer.theBoard[8].status == "O")) || (($scope.gameContainer.theBoard[0].status == "O") && ($scope.gameContainer.theBoard[4].status == "O") && ($scope.gameContainer.theBoard[8].status == "O")) || (($scope.gameContainer.theBoard[2].status == "O") && ($scope.gameContainer.theBoard[4].status == "O") && ($scope.gameContainer.theBoard[6].status == "O"))) {
             $scope.gameContainer.owlWon = true;
             $scope.gameContainer.endGame = true;
             $scope.gameContainer.owlWins = $scope.gameContainer.owlWins + 1 ;
-        } else if ((($scope.batCells.indexOf(0) > -1) && ($scope.batCells.indexOf(1) > -1) && ($scope.batCells.indexOf(2) > -1)) || (($scope.batCells.indexOf(3) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(5) > -1)) || (($scope.batCells.indexOf(6) > -1) && ($scope.batCells.indexOf(7) > -1) && ($scope.batCells.indexOf(8) > -1)) || (($scope.batCells.indexOf(0) > -1) && ($scope.batCells.indexOf(3) > -1) && ($scope.batCells.indexOf(6) > -1)) || (($scope.batCells.indexOf(1) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(7) > -1)) || (($scope.batCells.indexOf(2) > -1) && ($scope.batCells.indexOf(5) > -1) && ($scope.batCells.indexOf(8) > -1)) || (($scope.batCells.indexOf(0) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(8) > -1)) || (($scope.batCells.indexOf(2) > -1) && ($scope.batCells.indexOf(4) > -1) && ($scope.batCells.indexOf(6) > -1))) {
+        } else if ((($scope.gameContainer.theBoard[0].status == "B") && ($scope.gameContainer.theBoard[1].status == "B") && ($scope.gameContainer.theBoard[2].status == "B")) || (($scope.gameContainer.theBoard[3].status == "B") && ($scope.gameContainer.theBoard[4].status == "B") && ($scope.gameContainer.theBoard[5].status == "B")) || (($scope.gameContainer.theBoard[6].status == "B") && ($scope.gameContainer.theBoard[7].status == "B") && ($scope.gameContainer.theBoard[8].status == "B")) || (($scope.gameContainer.theBoard[0].status == "B") && ($scope.gameContainer.theBoard[3].status == "B") && ($scope.gameContainer.theBoard[6].status == "B")) || (($scope.gameContainer.theBoard[1].status == "B") && ($scope.gameContainer.theBoard[4].status == "B") && ($scope.gameContainer.theBoard[7].status == "B")) || (($scope.gameContainer.theBoard[2].status == "B") && ($scope.gameContainer.theBoard[5].status == "B") && ($scope.gameContainer.theBoard[8].status == "B")) || (($scope.gameContainer.theBoard[0].status == "B") && ($scope.gameContainer.theBoard[4].status == "B") && ($scope.gameContainer.theBoard[8].status == "B")) || (($scope.gameContainer.theBoard[2].status == "B") && ($scope.gameContainer.theBoard[4].status == "B") && ($scope.gameContainer.theBoard[6].status == "B"))) {
             $scope.gameContainer.batWon = true ;
             $scope.gameContainer.endGame = true;
             $scope.gameContainer.batWins = $scope.gameContainer.batWins + 1 ;
-        } else if ($scope.owlCells.length == 5) {
+        } else if ($scope.gameContainer.clickCounter == 9) {
             $scope.gameContainer.aTie = true ;
         } else {
             console.log("not yet");
+
         };
 
 
@@ -161,8 +143,6 @@ witchTic.controller('Controlled', function ($scope, $http, $firebase) {
 
 
 });
-
-
 
 
 
