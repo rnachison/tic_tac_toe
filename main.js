@@ -3,7 +3,7 @@ var witchTic = angular.module("witchTic", ["firebase"]);
 witchTic.controller('Controlled', function ($scope, $firebase) {
 
     $scope.remoteGameContainer = 
-    $firebase(new Firebase("https://tttwitch.firebaseio.com/databaseGameContainer")) ;
+    $firebase(new Firebase("https://witch-game.firebaseio.com/databaseGameContainer")) ;
 
     $scope.testString = "All connected, boo!" ;
 
