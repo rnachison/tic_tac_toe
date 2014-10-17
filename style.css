@@ -119,6 +119,17 @@ button:hover {
     background-color: rgb(255, 0, 255);
 }
 
+/*Wait message*/
+
+#wait {
+    text-align: center;
+    color: #8A0748;
+    font-family: 'Great Vibes', cursive;
+    font-size: 140%;
+    margin: 4% auto;
+}
+
+
 
 /*Player win counter boxes*/
 
@@ -199,6 +210,10 @@ button:hover {
     h3 {
         font-size: 139%;
         margin: 7% auto 8% auto;
+    }
+
+    #wait {
+        font-size: 100%;
     }
 
     .gridBox {

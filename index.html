@@ -45,6 +45,7 @@
 
             <p class="instructions" id="pleaseCall" ng-hide="gameContainer.owlWon || gameContainer.batWon || gameContainer.aTie">Please call your familiar.</p>
             <p class="instructions" ng-hide="gameContainer.owlWon || gameContainer.batWon || gameContainer.aTie">Owls will choose the player that takes initiative; bats will choose the player who waits to survey.</p>
+            <p ng-show="waiting" class="ng-hide" id="wait">Please wait for opponent to move before calling.</p>
 
 <!--    Appears when game has ended -->
 
