@@ -5,6 +5,7 @@
         <link href='https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica+SC' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Nosifer' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="animate.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
         <script src="main.js"></script>
         <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
@@ -45,13 +46,13 @@
 
             <p class="instructions" id="pleaseCall" ng-hide="gameContainer.owlWon || gameContainer.batWon || gameContainer.aTie">Please call your familiar.</p>
             <p class="instructions" ng-hide="gameContainer.owlWon || gameContainer.batWon || gameContainer.aTie">Owls will choose the player that takes initiative; bats will choose the player who waits to survey.</p>
-            <p ng-show="waiting" class="ng-hide" id="wait">Please wait for opponent to move before calling.</p>
+            <p ng-show="waiting" class="ng-hide animated bounceInDown" id="wait">Please wait for opponent to move before calling.</p>
 
 <!--    Appears when game has ended -->
 
-            <h3 ng-show="gameContainer.owlWon">OWL WILL CARRY OUT PLAYER 1'S BIDDING</h3>
-            <h3 ng-show="gameContainer.batWon">BAT WILL CARRY OUT PLAYER 2'S BIDDING</h3>
-            <h3 ng-show="gameContainer.aTie">BAT AND OWL HAVE REACHED AN IMPASSE</h3>
+            <h3 ng-show="gameContainer.owlWon" class="animated zoomInDown">OWL WILL CARRY OUT PLAYER 1'S BIDDING</h3>
+            <h3 ng-show="gameContainer.batWon" class="animated zoomInDown">BAT WILL CARRY OUT PLAYER 2'S BIDDING</h3>
+            <h3 ng-show="gameContainer.aTie" class="animated zoomInDown">BAT AND OWL HAVE REACHED AN IMPASSE</h3>
 
             <div class="gridBox">
 

@@ -96,7 +96,7 @@ witchTic.controller('Controlled', function($scope,$firebase) {
       $scope.waiting = true;
     }  
     else {
-        $scope.waiting = false;  
+        $scope.waiting = false;
         $scope.gameContainer.clickCounter ++;
         console.log("Cell was: " + thisCell.status);
         if (($scope.gameContainer.clickCounter % 2) == 1){

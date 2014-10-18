@@ -129,12 +129,15 @@ button:hover {
     margin: 4% auto;
 }
 
+.ng-hide {
+    -webkit-animation-name: bounceUpOut;
+}
 
 
 /*Player win counter boxes*/
 
 .playerWins div {
-    width: 10%;
+    width: 11%;
     background-color: rgba(255, 13, 134, .7);
     border: 3px dotted #8A0748;
     border-radius: 30%;
