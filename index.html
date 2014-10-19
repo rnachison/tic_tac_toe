@@ -44,21 +44,18 @@
 
 <!--    Gives user instructions and hides when player has won -->
             
-            <div class="instructions">
                 <p id="pleaseCall" ng-hide="gameContainer.owlWon || gameContainer.batWon || gameContainer.aTie">Please call your familiar.</p>
-            </div>
 
+<!--    Appears when game has ended -->
+
+            <h3 ng-show="gameContainer.owlWon">OWL HAS CARRIED OUT PLAYER 1'S BIDDING</h3>
+            <h3 ng-show="gameContainer.batWon">BAT HAS CARRIED OUT PLAYER 2'S BIDDING</h3>
+            <h3 ng-show="gameContainer.aTie">BAT AND OWL HAVE REACHED AN IMPASSE</h3>
+            
 <!--    Create an empty space for the wait message to appear in -->
             <div id="waitSpace">
                 <p ng-show="waiting" class="ng-hide animated bounceOutUp" id="wait">Opponent is casting...</p>
             </div>
-
-<!--    Appears when game has ended -->
-
-            <h3 ng-show="gameContainer.owlWon">OWL WILL CARRY OUT PLAYER 1'S BIDDING</h3>
-            <h3 ng-show="gameContainer.batWon">BAT WILL CARRY OUT PLAYER 2'S BIDDING</h3>
-            <h3 ng-show="gameContainer.aTie">BAT AND OWL HAVE REACHED AN IMPASSE</h3>
-
             <div class="gridBox">
 
 <!--    Stamps out all nine cells, and changes background picture based on click # -->
