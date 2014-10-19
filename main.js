@@ -46,8 +46,6 @@ witchTic.controller('Controlled', function($scope,$firebase) {
 // Create waiting variable to show/hide wait message
 
     $scope.waiting = false;
-    $scope.goAhead = false;
-
 
     witchRef.once("value", function(data) {
         // See how many players are on board
@@ -98,7 +96,6 @@ witchTic.controller('Controlled', function($scope,$firebase) {
     }  
     else {
         $scope.waiting = false;
-        $scope.goAhead = true;
         $scope.gameContainer.clickCounter ++;
         console.log("Cell was: " + thisCell.status);
         if (($scope.gameContainer.clickCounter % 2) == 1){
