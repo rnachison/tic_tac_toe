@@ -26,7 +26,7 @@ h1 {
 
 /*Instruction paragraph*/
 
-p.instructions {
+.instructions p {
     text-align: center;
     color: rgb(255, 13, 134);
     font-family: 'Great Vibes', cursive;
@@ -121,16 +121,22 @@ button:hover {
 
 /*Wait message*/
 
+#waitSpace {
+    width: 100%;
+    height: 6%;
+}
+
 #wait {
     text-align: center;
     color: #8A0748;
     font-family: 'Great Vibes', cursive;
     font-size: 140%;
-    margin: 4% auto;
+    margin: 0% auto;
+    padding-top: 1%;
 }
 
-.ng-hide {
-    -webkit-animation-name: bounceUpOut;
+p.animated {
+    -webkit-animation-delay: 3s;
 }
 
 

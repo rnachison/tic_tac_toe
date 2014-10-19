@@ -12,15 +12,15 @@ witchTic.controller('Controlled', function($scope,$firebase) {
     // $scope.testString = "All connected, boo!" ;
 
     $scope.theCells = new Object() ;
-        $scope.theCells["0"] = {status: "X", num: 0} ; 
-        $scope.theCells["1"] = {status: "X", num: 1} ; 
-        $scope.theCells["2"] = {status: "X", num: 2} ; 
-        $scope.theCells["3"] = {status: "X", num: 3} ; 
-        $scope.theCells["4"] = {status: "X", num: 4} ; 
-        $scope.theCells["5"] = {status: "X", num: 5} ; 
-        $scope.theCells["6"] = {status: "X", num: 6} ; 
-        $scope.theCells["7"] = {status: "X", num: 7} ; 
-        $scope.theCells["8"] = {status: "X", num: 8} ;
+        $scope.theCells["0"] = {status: "X"} ; 
+        $scope.theCells["1"] = {status: "X"} ; 
+        $scope.theCells["2"] = {status: "X"} ; 
+        $scope.theCells["3"] = {status: "X"} ; 
+        $scope.theCells["4"] = {status: "X"} ; 
+        $scope.theCells["5"] = {status: "X"} ; 
+        $scope.theCells["6"] = {status: "X"} ; 
+        $scope.theCells["7"] = {status: "X"} ; 
+        $scope.theCells["8"] = {status: "X"} ;
 
 // Set click counter at 0
 
@@ -46,6 +46,7 @@ witchTic.controller('Controlled', function($scope,$firebase) {
 // Create waiting variable to show/hide wait message
 
     $scope.waiting = false;
+    $scope.goAhead = false;
 
 
     witchRef.once("value", function(data) {
@@ -97,6 +98,7 @@ witchTic.controller('Controlled', function($scope,$firebase) {
     }  
     else {
         $scope.waiting = false;
+        $scope.goAhead = true;
         $scope.gameContainer.clickCounter ++;
         console.log("Cell was: " + thisCell.status);
         if (($scope.gameContainer.clickCounter % 2) == 1){
@@ -111,21 +113,7 @@ witchTic.controller('Controlled', function($scope,$firebase) {
     } 
   };
 
-
-
-
-        // $scope.gameContainer.clickCounter = $scope.gameContainer.clickCounter + 1 ;
-        // console.log(thisCell + " was chosen.") ;
-        // if (($scope.gameContainer.clickCounter % 2) == 1) {
-        //     thisCell.status = "O" ;
-        // } else {
-        //     thisCell.status = "B" ;
-        // }
-        // console.log("Cell is now " + thisCell.status) ;
-
-
-
-// Define winner by checking for winning num combinations in arrays
+// Define winner by checking for winning combinations
 
     function determineWin(familiar) {
 

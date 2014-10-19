@@ -43,10 +43,15 @@
             <h1>Cat's Game</h1>
 
 <!--    Gives user instructions and hides when player has won -->
+            
+            <div class="instructions">
+                <p id="pleaseCall" ng-hide="gameContainer.owlWon || gameContainer.batWon || gameContainer.aTie">Please call your familiar.</p>
+            </div>
 
-            <p class="instructions" id="pleaseCall" ng-hide="gameContainer.owlWon || gameContainer.batWon || gameContainer.aTie">Please call your familiar.</p>
-            <p class="instructions" ng-hide="gameContainer.owlWon || gameContainer.batWon || gameContainer.aTie">Owls will choose the player that takes initiative; bats will choose the player who waits to survey.</p>
-            <p ng-show="waiting" class="ng-hide animated bounceInDown" id="wait">Please wait for opponent to move before calling.</p>
+<!--    Create an empty space for the wait message to appear in -->
+            <div id="waitSpace">
+                <p ng-show="waiting" class="ng-hide animated bounceOutUp" id="wait">Opponent is casting...</p>
+            </div>
 
 <!--    Appears when game has ended -->
 
